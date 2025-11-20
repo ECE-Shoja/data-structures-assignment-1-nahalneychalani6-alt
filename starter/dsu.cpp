@@ -4,19 +4,23 @@ using namespace std;
 vector<int> parent, sz;
 
 int findSet(int v) {
-    return leader[v] ;
+    while(v!=parent[v]){
+        v=parent[v];
 }
-
+return v ;
+}
 void Union(int p , int q){
-        int leaderP=leader[p] ;
-        int leaderQ=leader[q] ;
-        for(int i=0 ; i<leader.size() ; i++){
-            if(leader[i]==leaderP){
-            leader[i]=leaderQ;
-            }
-        }
+        int rootP=leader[p] ;
+        int rootQ=leader[q] ;
+        if(rootP==rootQ) return ;
+         if(sz[rootP]<sz[rootQ]){
+             parent[rootP]=rootQ ;
+             sz[rootQ]+=sz[rootP] ;
+        }else if(sz[rootP]>sz[rootQ]){
+             parent[rootQ]=rootP ;
+             sz[rootP]+=sz[rootQ]
     }
-
+}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
