@@ -9,9 +9,9 @@ int findSet(int v) {
 }
 return v ;
 }
-void Union(int p , int q){
-        int rootP=leader[p] ;
-        int rootQ=leader[q] ;
+void unionset(int p , int q){
+        int rootP=parent[p] ;
+        int rootQ=parent[q] ;
         if(rootP==rootQ) return ;
          if(sz[rootP]<sz[rootQ]){
              parent[rootP]=rootQ ;
