@@ -4,12 +4,18 @@ using namespace std;
 vector<int> parent, sz;
 
 int findSet(int v) {
-    // TODO: implement path compression
+    return leader[v] ;
 }
 
-void unionSet(int a, int b) {
-    // TODO: implement union by size/rank
-}
+void Union(int p , int q){
+        int leaderP=leader[p] ;
+        int leaderQ=leader[q] ;
+        for(int i=0 ; i<leader.size() ; i++){
+            if(leader[i]==leaderP){
+            leader[i]=leaderQ;
+            }
+        }
+    }
 
 int main() {
     ios::sync_with_stdio(false);
